@@ -1,6 +1,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "watch": true,
+    "module": "system",
     "outDir": "./dist/out-tsc",
     "baseUrl": "src",
     "sourceMap": true,
