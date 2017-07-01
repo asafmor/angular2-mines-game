@@ -44,9 +44,9 @@ import { assetsPath } from "app/config";
 })
 export class ControlsComponent implements OnInit {
 
-	private assetsPath = assetsPath;
+	public assetsPath = assetsPath;
 
-	constructor(private game: GameManager) { }
+	constructor(public game: GameManager) { }
 
 	ngOnInit() {
 	}

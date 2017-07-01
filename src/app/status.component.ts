@@ -53,7 +53,7 @@ import { GameManager } from './gameManager'
 })
 export class StatusComponent implements OnInit {
 
-	constructor(private game: GameManager) { }
+	constructor(public game: GameManager) { }
 
 	ngOnInit() {
 	}
