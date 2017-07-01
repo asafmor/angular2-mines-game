@@ -3,18 +3,27 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { TestComponent } from "app/test.component";
+import { GameManager } from "app/gameManager";
+import { StatusComponent } from "app/status.component";
+import { FormsModule } from "@angular/forms";
+import { ControlsComponent } from "app/controls.component";
+import { BoardComponent } from "app/board.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TestComponent
-  ],
-  imports: [
-    BrowserModule,
-    NgbModule.forRoot()
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		StatusComponent,
+		ControlsComponent,
+		BoardComponent
+	],
+	imports: [
+		BrowserModule,
+		FormsModule,
+		NgbModule.forRoot()
+	],
+	providers: [
+		GameManager
+	],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
