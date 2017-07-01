@@ -1,6 +1,6 @@
 # Mines Game with Angular2
 
-A board game implemented as an exercise during a JavaScript course.
+A board game implemented as an exercise during an Angular course.
 
 Live demo: [http://captainmor.com/MinesGameAngular2/](http://captainmor.com/MinesGameAngular2/)
 
