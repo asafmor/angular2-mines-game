@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameManager } from './gameManager'
 import { assetsPath } from "app/config";
+import { HotkeysService, Hotkey } from "angular2-hotkeys";
 
 @Component({
 	selector: 'controls',
@@ -46,7 +47,28 @@ export class ControlsComponent implements OnInit {
 
 	public assetsPath = assetsPath;
 
-	constructor(public game: GameManager) { }
+	constructor(public game: GameManager, private hotkeysService: HotkeysService) {
+		this.hotkeysService.add(new Hotkey('left', (event: KeyboardEvent): boolean => {
+			game.stepLeft();
+			return false; // Prevent bubbling
+		}, [], "Go Left"));
+		this.hotkeysService.add(new Hotkey('right', (event: KeyboardEvent): boolean => {
+			game.stepRight();
+			return false; // Prevent bubbling
+		}, [], "Go Right"));
+		this.hotkeysService.add(new Hotkey('up', (event: KeyboardEvent): boolean => {
+			game.stepUp();
+			return false; // Prevent bubbling
+		}, [], "Go Up"));
+		this.hotkeysService.add(new Hotkey('down', (event: KeyboardEvent): boolean => {
+			game.stepDown();
+			return false; // Prevent bubbling
+		}, [], "Go Down"));
+		this.hotkeysService.add(new Hotkey('enter', (event: KeyboardEvent): boolean => {
+			game.play();
+			return false; // Prevent bubbling
+		}, [], "Restart Game"));
+	}
 
 	ngOnInit() {
 	}

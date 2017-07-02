@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {HotkeyModule} from 'angular2-hotkeys';
 
 import { AppComponent } from './app.component';
 import { GameManager } from "app/gameManager";
@@ -19,7 +20,8 @@ import { BoardComponent } from "app/board.component";
 	imports: [
 		BrowserModule,
 		FormsModule,
-		NgbModule.forRoot()
+		NgbModule.forRoot(),
+		HotkeyModule.forRoot()
 	],
 	providers: [
 		GameManager

@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 
 	<status></status>
 
+	<hotkeys-cheatsheet></hotkeys-cheatsheet>
+
 	<table>
 		<tr >
 			<td valign="top" style="padding: 24px;">
