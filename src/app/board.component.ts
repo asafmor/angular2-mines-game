@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GameManager } from './gameManager'
-import { assetsPath } from "app/config";
 
 @Component({
 	selector: 'board',
@@ -10,36 +9,36 @@ import { assetsPath } from "app/config";
            style="padding: 0px; border-spacing: 0; border-collapse: collapse;">
         <tr height="32">
             <td>
-				<img [src]="assetsPath + 'edge_top_left.png'"/>
+				<i class="sprite sprite-edge_top_left"></i>
 			</td>
             <td *ngFor="let n of [].constructor(game.boardSize)">
-				<img [src]="assetsPath + 'edge_top.png'"/>
+				<i class="sprite sprite-edge_top"></i>
 			</td>
             <td>
-				<img [src]="assetsPath + 'edge_top_right.png'"/>
+				<i class="sprite sprite-edge_top_right"></i>
 			</td>
         </tr>
         <tr height="64" *ngFor="let n of [].constructor(game.boardSize); let row=index">
             <td>
-				<img [src]="assetsPath + 'edge_left.png'"/>
+				<i class="sprite sprite-edge_left"></i>
 			</td>
-            <td [style.background-image]="'url(' + assetsPath + 'tile_grass.png)'"
-				 *ngFor="let n of [].constructor(game.boardSize); let col=index">
-                <img [src]="game.getTileImage(row, col)" width="64" height="64"/>
+            <td *ngFor="let n of [].constructor(game.boardSize); let col=index">
+				 <i class="sprite sprite-tile_grass" style="z-index: -1; position: fixed;"></i>
+				 <i class="sprite" [ngClass]="getClass(row, col)" style="z-index: 1;"></i>
             </td>
             <td>
-				<img [src]="assetsPath + 'edge_right.png'"/>
+				<i class="sprite sprite-edge_right"></i>
 			</td>
         </tr>
         <tr height="32">
             <td>
-				<img [src]="assetsPath + 'edge_bottom_left.png'"/>
+				<i class="sprite sprite-edge_bottom_left"></i>
 			</td>
             <td *ngFor="let n of [].constructor(game.boardSize)">
-				<img [src]="assetsPath + 'edge_bottom.png'"/>
+				<i class="sprite sprite-edge_bottom"></i>
             </td>
             <td>
-				<img [src]="assetsPath + 'edge_bottom_right.png'"/>
+				<i class="sprite sprite-edge_bottom_right"></i>
 			</td>
         </tr>
     </table>
@@ -50,11 +49,15 @@ import { assetsPath } from "app/config";
 })
 export class BoardComponent implements OnInit {
 
-	public assetsPath = assetsPath;
-
 	constructor(public game: GameManager) { }
 
 	ngOnInit() {
+	}
+
+	getClass(row: number, col: number) {
+		const classes = {};
+		classes[this.game.getTileImage(row, col)] = true;
+		return classes;
 	}
 
 }

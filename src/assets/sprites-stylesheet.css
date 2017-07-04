@@ -1,0 +1,101 @@
+.sprite {
+    background-image: url(/assets/spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-arrows {
+    width: 64px;
+    height: 64px;
+    background-position: -5px -5px;
+}
+
+.sprite-edge_bottom {
+    width: 64px;
+    height: 32px;
+    background-position: -79px -5px;
+}
+
+.sprite-edge_bottom_left {
+    width: 32px;
+    height: 32px;
+    background-position: -153px -5px;
+}
+
+.sprite-edge_bottom_right {
+    width: 32px;
+    height: 32px;
+    background-position: -195px -5px;
+}
+
+.sprite-edge_left {
+    width: 32px;
+    height: 64px;
+    background-position: -79px -47px;
+}
+
+.sprite-edge_right {
+    width: 32px;
+    height: 64px;
+    background-position: -121px -47px;
+}
+
+.sprite-edge_top {
+    width: 64px;
+    height: 32px;
+    background-position: -163px -47px;
+}
+
+.sprite-edge_top_left {
+    width: 32px;
+    height: 32px;
+    background-position: -5px -89px;
+}
+
+.sprite-edge_top_right {
+    width: 32px;
+    height: 32px;
+    background-position: -163px -89px;
+}
+
+.sprite-empty {
+    width: 64px;
+    height: 64px;
+    background-position: -5px -131px;
+}
+
+.sprite-mine {
+    width: 64px;
+    height: 64px;
+    background-position: -79px -131px;
+}
+
+.sprite-player {
+    width: 64px;
+    height: 64px;
+    background-position: -153px -131px;
+}
+
+.sprite-player_dead {
+    width: 64px;
+    height: 64px;
+    background-position: -237px -5px;
+}
+
+.sprite-rock {
+    width: 64px;
+    height: 64px;
+    background-position: -237px -79px;
+}
+
+.sprite-tile_grass {
+    width: 64px;
+    height: 64px;
+    background-position: -227px -153px;
+}
+
+.sprite-visited {
+    width: 64px;
+    height: 64px;
+    background-position: -5px -227px;
+}

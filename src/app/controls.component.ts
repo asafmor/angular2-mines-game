@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { GameManager } from './gameManager'
-import { assetsPath } from "app/config";
 import { HotkeysService, Hotkey } from "angular2-hotkeys";
 
 @Component({
@@ -44,8 +43,6 @@ import { HotkeysService, Hotkey } from "angular2-hotkeys";
 	`]
 })
 export class ControlsComponent implements OnInit {
-
-	public assetsPath = assetsPath;
 
 	constructor(public game: GameManager, private hotkeysService: HotkeysService) {
 		this.registerKeyboard();

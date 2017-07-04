@@ -1,7 +1,6 @@
 import { MinesGame } from "./minesGame.class";
 import { MineTile, ObstacleTile, SlipperyTile, VisitedTile } from "./tiles.class";
 import { Injectable } from "@angular/core";
-import { assetsPath } from "app/config";
 
 @Injectable()
 export class GameManager {
@@ -57,7 +56,7 @@ export class GameManager {
 
 	getTileImage(x: number, y: number) {
 		if (this.minesGame == null) {
-			return assetsPath + "empty.png";
+			return "sprite-empty";
 		}
 
 		try {
@@ -65,28 +64,28 @@ export class GameManager {
 			if (t) {
 				if (this.minesGame.playerPositionX === x && this.minesGame.playerPositionY === y) {
 					if (this.minesGame.gameOver) {
-						return assetsPath + "player_dead.png";
+						return "sprite-player_dead";
 					} else {
-						return assetsPath + "player.png";
+						return "sprite-player";
 					}
 				} else {
 					if (t instanceof MineTile) {
-						return assetsPath + "mine.png";
+						return "sprite-mine";
 					} else if (t instanceof ObstacleTile) {
-						return assetsPath + "rock.png";
+						return "sprite-rock";
 					} else if (t instanceof VisitedTile) {
-						return assetsPath + "visited.png";
+						return "sprite-visited";
 					} else if (t instanceof SlipperyTile) {
-						return assetsPath + "arrows.png";
+						return "sprite-arrows";
 					} else {
-						return assetsPath + "empty.png";
+						return "sprite-empty";
 					}
 				}
 			} else {
-				return assetsPath + "empty.png";
+				return "sprite-empty";
 			}
 		} catch (Exception) {
-			return assetsPath + "empty.png";
+			return "sprite-empty";
 		}
 	}
 
