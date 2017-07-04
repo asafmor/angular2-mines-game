@@ -48,26 +48,22 @@ export class ControlsComponent implements OnInit {
 	public assetsPath = assetsPath;
 
 	constructor(public game: GameManager, private hotkeysService: HotkeysService) {
-		this.hotkeysService.add(new Hotkey('left', (event: KeyboardEvent): boolean => {
-			game.stepLeft();
+		this.registerKeyboard();
+	}
+
+	private registerKeyboard() {
+		this.registerKey('left', () => { this.game.stepLeft(); }, "Step Left");
+		this.registerKey('right', () => { this.game.stepRight(); }, "Step Right");
+		this.registerKey('up', () => { this.game.stepUp(); }, "Step Up");
+		this.registerKey('down', () => { this.game.stepDown(); }, "Step Down");
+		this.registerKey('enter', () => { this.game.play(); }, "Restart Game");
+	}
+
+	private registerKey(key: string, action, description?: string) {
+		this.hotkeysService.add(new Hotkey(key, (event: KeyboardEvent): boolean => {
+			action();
 			return false; // Prevent bubbling
-		}, [], "Go Left"));
-		this.hotkeysService.add(new Hotkey('right', (event: KeyboardEvent): boolean => {
-			game.stepRight();
-			return false; // Prevent bubbling
-		}, [], "Go Right"));
-		this.hotkeysService.add(new Hotkey('up', (event: KeyboardEvent): boolean => {
-			game.stepUp();
-			return false; // Prevent bubbling
-		}, [], "Go Up"));
-		this.hotkeysService.add(new Hotkey('down', (event: KeyboardEvent): boolean => {
-			game.stepDown();
-			return false; // Prevent bubbling
-		}, [], "Go Down"));
-		this.hotkeysService.add(new Hotkey('enter', (event: KeyboardEvent): boolean => {
-			game.play();
-			return false; // Prevent bubbling
-		}, [], "Restart Game"));
+		}, [], description));
 	}
 
 	ngOnInit() {
